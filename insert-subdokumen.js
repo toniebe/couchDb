@@ -87,10 +87,8 @@ async function insertSubDocument() {
       const sensorLogs = generateDataSensor(sensor.idsensor, jumlahPerData);
       sensor.logsensor.push(...sensorLogs);
 
-      // Pastikan logsensor sudah diurutkan berdasarkan waktu
       sensor.logsensor.sort((a, b) => new Date(a.waktu) - new Date(b.waktu));
 
-      // Pastikan ada logsensor sebelum menjadwalkan pemeliharaan
       if (sensor.logsensor.length > 0) {
         const firstLogDate = new Date(sensor.logsensor[0].waktu);
         const lastLogDate = new Date(sensor.logsensor[sensor.logsensor.length - 1].waktu);
