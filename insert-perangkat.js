@@ -1,5 +1,5 @@
 const nano = require('nano')(`http://admin:password123@localhost:5984`);
-const dbName = 'pdam';
+const dbName = 'perangkat';
 
 async function setup() {
   try {

@@ -1,5 +1,5 @@
 const nano = require('nano')(`http://admin:password123@localhost:5984`);
-const db = nano.db.use('pdam');
+const db = nano.db.use('perangkat');
 
 const jenisSensor = ["valve", "flowmeter", "pressure"];
 const jumlahPerangkat = 10;
