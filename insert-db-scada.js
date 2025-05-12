@@ -101,6 +101,7 @@ async function setup() {
                     status: getRandomStatus(),
                 },
                 automatedRules:{
+                    idrules:`rules:${docIndex + 1}`,
                     rules:generateAutomatedRules(docIndex),
                     metode:getRandomElement(aiMethods)
                 },
