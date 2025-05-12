@@ -6,6 +6,10 @@ function getRandomDate(start, end) {
     return new Date(timestamp).toISOString();
   }
 
+  function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
   function generateDataSensor(count) {
     const startDate = new Date('2024-01-01T00:00:00Z');
     const endDate = new Date();
@@ -61,6 +65,14 @@ async function setup() {
 
     const jenisSensorList = ["pressure", "valve", "flowmeter"];
     const jumlahPerData = 100
+    const operatorNames = [
+      "kpunandeng", "tettyyunidar", "reza", "ridho", "spkpu", "administrator",
+      "ennyhajiwani", "wiwiethenry", "khairulrazikin", "fahri", "kpunoname",
+      "pameran", "adibudiwan", "eko", "spkpw1", "urayomar", "kpw2noname",
+      "spkpw2", "henu", "edo"
+    ];
+  const startDate = new Date('2024-01-01T00:00:00Z');
+  const endDate = new Date();
 
     const docs = [];
    
@@ -75,7 +87,12 @@ async function setup() {
         idperangkat: `perangkat:${Math.floor(Math.random() * 130) + 1}`,
         lokasi: lokasiList[Math.floor(Math.random() * lokasiList.length)],
         status: Math.round(Math.random()),
-        logsensor: logsensor
+        logsensor: logsensor,
+        controlroom:{
+          idcontrolroom: `controlroom:${docIndex + 1}`,
+          namaoperator:getRandomElement(operatorNames),
+          waktumonitoring: getRandomDate(startDate, endDate)
+      }
       };
 
       docs.push(doc);
